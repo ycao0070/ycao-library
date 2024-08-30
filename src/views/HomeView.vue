@@ -89,7 +89,7 @@ const validateConfirmPassword = (blur) => {
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-8 offset-md-2">
-        <h1 class="text-center">🗄️ W4. Library Registration Form</h1>
+        <h1 class="text-center">🗄️ W5. Library Registration Form</h1>
         <p class="text-center">
           Let's build some more advanced featrues into our form.
         </p>
@@ -220,14 +220,7 @@ const validateConfirmPassword = (blur) => {
 </template>
 
 <style scoped>
-.container {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  max-width: 80vw;
-  margin: 0 auto;
-  padding: 20px;
-  /* background-color: #e0bfbf; */
-  border-radius: 10px;
-}
+
 
 /* Class selectors */
 .form {
