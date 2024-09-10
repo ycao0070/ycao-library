@@ -10,6 +10,9 @@
         <li class="nav-item">
           <router-link to="/about" class="nav-link" active-class="avtive">About</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/login" class="nav-link" active-class="active">Login</router-link>
+        </li>
         <!-- <li class="nav-item"><a href="#" class="nav-link">Contact us</a></li> -->
       </ul>
     </header>
