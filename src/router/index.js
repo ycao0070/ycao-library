@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import LoginView from '../views/LoginView.vue'
 import FirebaseSigninView from '../views/FirebaseSigninView.vue'
+import FirebaseRegisterView from '../views/FirebaseRegisterView.vue'
 import store from '../store/store'
 
 const routes = [
@@ -22,9 +23,14 @@ const routes = [
         component: LoginView
     },
     {
-        path:'/FireLogin',
-        name:'FireLogin',
+        path: '/firelogin',
+        name: 'FireLogin',
         component: FirebaseSigninView
+    },
+    {
+        path: '/fireregister',
+        name: 'FireRegister',
+        component: FirebaseRegisterView
     }
 ]
 
@@ -34,8 +40,8 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    if (!store.state.isAuthenticated && to.name !== 'Login' && to.name !== 'Home') {
-        next({ name: 'Login' })
+    if (!store.state.isAuthenticated && to.name !== 'FireLogin' && to.name !== 'FireRegister') {
+        next({ name: 'FireLogin' })
     } else {
         next()
     }
