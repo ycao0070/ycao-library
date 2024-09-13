@@ -13,20 +13,69 @@
         <li class="nav-item">
           <router-link to="/addbook" class="nav-link" active-class="avtive">Add Book</router-link>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <router-link to="/login" class="nav-link" active-class="active">Login</router-link>
-        </li>
+        </li> -->
         <li class="nav-item">
           <router-link to="/firelogin" class="nav-link" active-class="active">Firebase Login</router-link>
         </li>
         <li class="nav-item">
           <router-link to="/fireregister" class="nav-link" active-class="active">Firebase Register</router-link>
         </li>
+        <li class="nav-item" v-if="isAdmin">
+          <router-link to="/admin" class="nav-link" active-class="active">Admin</router-link>
+        </li>
+        <li class="nav-item" v-if="user">
+          <button @click="logout" class="nav-link btn btn-link" style="cursor: pointer">Logout</button>
+        </li>
         <!-- <li class="nav-item"><a href="#" class="nav-link">Contact us</a></li> -->
       </ul>
     </header>
   </div>
 </template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+import db from '@/firebase/init'
+import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth'
+import { doc, getDoc } from 'firebase/firestore'
+import { useRouter } from 'vue-router'
+
+const auth = getAuth()
+const router = useRouter()
+const user = ref(null)
+const isAdmin = ref(false)
+
+onMounted(() => {
+  onAuthStateChanged(auth, async (loggedInUser) => {
+    if (loggedInUser) {
+      user.value = loggedInUser
+      const docRef = doc(db, 'users', loggedInUser.uid)
+      const docSnap = await getDoc(docRef)
+      const userData = docSnap.data()
+      const userRole = userData.role
+      if (userRole === 'admin') {
+          isAdmin.value = true
+        } else {
+          isAdmin.value = false
+        }
+    } else {
+      user.value = null
+    }
+  })
+})
+
+const logout = async () => {
+  try {
+    await signOut(auth)
+    user.value = null
+    router.push('/firelogin')
+    isAdmin.value = false
+  } catch (error) {
+    console.error('Error signing out: ', error)
+  }
+}
+</script>
 
 <style scoped>
 .b-example-divider {
