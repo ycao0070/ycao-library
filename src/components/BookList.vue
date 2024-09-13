@@ -10,23 +10,32 @@
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import db from '@/firebase/init';
-import { collection, query, where, getDocs } from 'firebase/firestore';
+import { collection, query, where, orderBy, limit, onSnapshot } from 'firebase/firestore';
 
 export default {
     setup() {
         const books = ref([])
 
+        let unsubscribe = null
+
         const fetchBooks = async () => {
             try {
-                const q = query(collection(db, 'books'), where('isbn', '>', 1000))
-                const querySnapshot = await getDocs(q)
-                const booksArray = []
-                querySnapshot.forEach((doc) => {
-                    booksArray.push({ id: doc.id, ...doc.data() })
+                const q = query(
+                    collection(db, 'books'), 
+                    where('isbn', '>', 1000),
+                    orderBy('isbn', 'desc'),
+                    limit(4)
+                )
+                
+                unsubscribe = onSnapshot(q, (querySnapshot) => {
+                    const booksArray = []
+                    querySnapshot.forEach((doc) => {
+                        booksArray.push({ id: doc.id, ...doc.data() })
+                    })
+                    books.value = booksArray
                 })
-                books.value = booksArray
             } catch (error) {
                 console.error('Error fetching books: ', error)
             }
@@ -34,6 +43,12 @@ export default {
 
         onMounted(() => {
             fetchBooks()
+        })
+
+        onUnmounted(() => {
+            if (unsubscribe) {
+                unsubscribe()
+            }
         })
 
         return {

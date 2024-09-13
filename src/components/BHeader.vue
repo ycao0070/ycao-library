@@ -13,6 +13,9 @@
         <li class="nav-item">
           <router-link to="/addbook" class="nav-link" active-class="avtive">Add Book</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/modifyordeletebook" class="nav-link" active-class="avtive">Modify or Delete Book</router-link>
+        </li>
         <!-- <li class="nav-item">
           <router-link to="/login" class="nav-link" active-class="active">Login</router-link>
         </li> -->
