@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
+import AddBookView from '@/views/AddBookView.vue'
 import LoginView from '../views/LoginView.vue'
 import FirebaseSigninView from '../views/FirebaseSigninView.vue'
 import FirebaseRegisterView from '../views/FirebaseRegisterView.vue'
-import store from '../store/store'
+// import store from '../store/store'
 
 const routes = [
     {
@@ -16,6 +17,11 @@ const routes = [
         path: '/about',
         name: 'About',
         component: AboutView
+    },
+    {
+        path: '/addbook',
+        name: 'AddBook',
+        component: AddBookView
     },
     {
         path: '/login',
@@ -39,12 +45,12 @@ const router = createRouter({
     routes
 })
 
-router.beforeEach((to, from, next) => {
-    if (!store.state.isAuthenticated && to.name !== 'FireLogin' && to.name !== 'FireRegister') {
-        next({ name: 'FireLogin' })
-    } else {
-        next()
-    }
-})
+// router.beforeEach((to, from, next) => {
+//     if (!store.state.isAuthenticated && to.name !== 'FireLogin' && to.name !== 'FireRegister') {
+//         next({ name: 'FireLogin' })
+//     } else {
+//         next()
+//     }
+// })
 
 export default router
