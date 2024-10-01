@@ -8,6 +8,7 @@ import FirebaseRegisterView from '../views/FirebaseRegisterView.vue'
 import AdminView from '@/views/AdminView.vue'
 import ModifyOrDeleteBookView from '@/views/ModifyOrDeleteBookView.vue'
 // import store from '../store/store'
+import GetBookCountView from '@/views/GetBookCountView.vue'
 
 const routes = [
     {
@@ -49,6 +50,11 @@ const routes = [
         path: '/modifyordeletebook',
         name: 'ModifyOrDeleteBook',
         component: ModifyOrDeleteBookView
+    },
+    {
+        path: '/getBookCount',
+        name: 'GetBookCount',
+        component: GetBookCountView
     }
 ]
 
