@@ -9,6 +9,7 @@ import AdminView from '@/views/AdminView.vue'
 import ModifyOrDeleteBookView from '@/views/ModifyOrDeleteBookView.vue'
 // import store from '../store/store'
 import GetBookCountView from '@/views/GetBookCountView.vue'
+import FirebaseAddBookView from '@/views/FirebaseAddBookView.vue'
 
 const routes = [
     {
@@ -55,6 +56,11 @@ const routes = [
         path: '/getBookCount',
         name: 'GetBookCount',
         component: GetBookCountView
+    },
+    {
+        path: '/fireaddbook',
+        name: 'FirebaseAddBook',
+        component: FirebaseAddBookView
     }
 ]
 

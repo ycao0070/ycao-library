@@ -17,3 +17,24 @@ exports.countBooks = onRequest((req, res) => {
     }
   });
 });
+
+exports.addBook = onRequest((req, res) => {
+  cors(req, res, async () => {
+    try {
+      const {isbn, name} = req.body;
+
+      const newBook = {
+        isbn: isbn,
+        name: name,
+      };
+
+      const bookCollection = admin.firestore().collection("books");
+      await bookCollection.add(newBook);
+
+      res.status(200).send({message: "Book added successfully!"});
+    } catch (error) {
+      console.error("Error adding book:", error.message);
+      res.status(500).send("Error adding book");
+    }
+  });
+});

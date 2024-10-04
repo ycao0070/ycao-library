@@ -10,11 +10,14 @@
         <li class="nav-item">
           <router-link to="/about" class="nav-link" active-class="avtive">About</router-link>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <router-link to="/addbook" class="nav-link" active-class="avtive">Add Book</router-link>
-        </li>
+        </li> -->
         <li class="nav-item">
           <router-link to="/getBookCount" class="nav-link" active-class="avtive">Get Book Count</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/fireaddbook" class="nav-link" active-class="avtive">Firebase Add Book</router-link>
         </li>
         <li class="nav-item">
           <router-link to="/modifyordeletebook" class="nav-link" active-class="avtive">Modify or Delete Book</router-link>
