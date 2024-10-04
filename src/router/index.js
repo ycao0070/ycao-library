@@ -10,6 +10,8 @@ import ModifyOrDeleteBookView from '@/views/ModifyOrDeleteBookView.vue'
 // import store from '../store/store'
 import GetBookCountView from '@/views/GetBookCountView.vue'
 import FirebaseAddBookView from '@/views/FirebaseAddBookView.vue'
+import WeatherView from '@/views/WeatherView.vue'
+import CountBookAPI from '@/views/CountBookAPI.vue'
 
 const routes = [
     {
@@ -53,7 +55,7 @@ const routes = [
         component: ModifyOrDeleteBookView
     },
     {
-        path: '/getBookCount',
+        path: '/getbookcount',
         name: 'GetBookCount',
         component: GetBookCountView
     },
@@ -61,6 +63,16 @@ const routes = [
         path: '/fireaddbook',
         name: 'FirebaseAddBook',
         component: FirebaseAddBookView
+    },
+    {
+        path: '/weather',
+        name: 'Weather',
+        component: WeatherView
+    },
+    {
+        path: '/countbookapi',
+        name: 'CountBookAPI',
+        component: CountBookAPI
     }
 ]
 

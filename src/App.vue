@@ -1,13 +1,25 @@
-<script setup>
+<script>
 import BHeader from './components/BHeader.vue'
 // import LibraryRegistrationForm from './components/LibraryRegistrationForm.vue'
+
+export default {
+  name: "App",
+  components: {
+    BHeader
+  },
+  computed: {
+    showHeader() {
+      return this.$route.name !== 'CountBookAPI'
+    }
+  }
+}
 </script>
 
 <template>
   <div class="main-container">
-    <header>
-    <BHeader />
-  </header>
+    <header v-if="showHeader">
+      <BHeader />
+    </header>
   <main class="main-box">
     <router-view></router-view>
   </main>
@@ -15,7 +27,7 @@ import BHeader from './components/BHeader.vue'
 </template>
 
 <style scoped>
-.container {
+.main-container {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   max-width: 80vw;
   margin: 0 auto;

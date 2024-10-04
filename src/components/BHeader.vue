@@ -7,14 +7,17 @@
         <li class="nav-item">
           <router-link to="/" class="nav-link" active-class="active" aria-current="page">Home (Week 5)</router-link>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <router-link to="/about" class="nav-link" active-class="avtive">About</router-link>
-        </li>
+        </li> -->
         <!-- <li class="nav-item">
           <router-link to="/addbook" class="nav-link" active-class="avtive">Add Book</router-link>
         </li> -->
         <li class="nav-item">
-          <router-link to="/getBookCount" class="nav-link" active-class="avtive">Get Book Count</router-link>
+          <router-link to="/getbookcount" class="nav-link" active-class="avtive">Get Book Count</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/countbookapi" class="nav-link" active-class="avtive">Count Book API</router-link>
         </li>
         <li class="nav-item">
           <router-link to="/fireaddbook" class="nav-link" active-class="avtive">Firebase Add Book</router-link>
@@ -30,6 +33,9 @@
         </li>
         <li class="nav-item">
           <router-link to="/fireregister" class="nav-link" active-class="active">Firebase Register</router-link>
+        </li>
+        <li class="nav-item">
+          <router-link to="/weather" class="nav-link" active-class="active">Weather</router-link>
         </li>
         <li class="nav-item" v-if="isAdmin">
           <router-link to="/admin" class="nav-link" active-class="active">Admin</router-link>
