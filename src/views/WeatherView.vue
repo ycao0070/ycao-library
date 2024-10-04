@@ -88,6 +88,14 @@ export default {
           });
         }
       },
+      async searchByCity() {
+        if (!this.city) {
+            alert("Please enter a city name!");
+            return;
+        }
+        const url = `http://api.openweathermap.org/data/2.5/weather?q=${this.city}&appid=${apikey}`;
+        await this.fetchWeatherData(url);
+      },
       async fetchWeatherData(url) {
         try {
           const response = await axios.get(url);

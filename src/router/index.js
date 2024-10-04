@@ -12,6 +12,7 @@ import GetBookCountView from '@/views/GetBookCountView.vue'
 import FirebaseAddBookView from '@/views/FirebaseAddBookView.vue'
 import WeatherView from '@/views/WeatherView.vue'
 import CountBookAPI from '@/views/CountBookAPI.vue'
+import JsonBookAPI from '@/views/JsonBookAPI.vue'
 
 const routes = [
     {
@@ -73,6 +74,11 @@ const routes = [
         path: '/countbookapi',
         name: 'CountBookAPI',
         component: CountBookAPI
+    },
+    {
+        path: '/jsonbookapi',
+        name: 'JsonBookAPI',
+        component: JsonBookAPI
     }
 ]
 

@@ -20,6 +20,10 @@
           <router-link to="/countbookapi" class="nav-link" active-class="avtive">Count Book API</router-link>
         </li>
         <li class="nav-item">
+          <router-link to="/jsonbookapi" class="nav-link" active-class="avtive">Get Book Json</router-link>
+        </li>
+        <li class="nav-item"></li>
+        <li class="nav-item">
           <router-link to="/fireaddbook" class="nav-link" active-class="avtive">Firebase Add Book</router-link>
         </li>
         <li class="nav-item">
