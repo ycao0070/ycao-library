@@ -83,7 +83,8 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    // eslint-disable-next-line no-undef
+    history: createWebHistory(process.env.BASE_URL),
     routes
 })
 
